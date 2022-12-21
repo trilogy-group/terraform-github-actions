@@ -37,6 +37,31 @@ jobs:
         if: github.event_name == 'pull_request'
         run: terraform plan -no-color -input=false
         continue-on-error: true
+      
+      - name: Terraform Show
+        if: github.event_name == 'pull_request'
+        run: terraform show -json > tf.show
+      
+      - name: Generate Mock reccomendations
+        if: github.event_name == 'pull_request'
+        run: python gen_recco.py tf.show
+
+      - name: Installing tflint
+        if: github.event_name == 'pull_request'
+        run: export TFLINT_VERSION=v0.39.3
+        run: (wget https://github.com/terraform-linters/tflint/releases/download/${TFLINT_VERSION}/tflint_${PLATFORM}.zip && unzip tflint_${PLATFORM}.zip && rm tflint_${PLATFORM}.zip)
+
+      - name: Installing Cloudfix-Linter
+        if: github.event_name == 'pull_request'
+        run: (wget https://github.com/trilogy-group/cloudfix-linter-developer/releases/latest/download/cloudfix-linter-developer_${PLATFORM} && mv cloudfix-linter-developer_${PLATFORM} cloudfix-linter)
+
+      - name: Cloudfix-Linter Init
+        if: github.event_name == 'pull_request'
+        run: cloudfix-linter init
+
+      - name: Cloudfix-Linter Recco
+        if: github.event_name == 'pull_request'
+        run: cloudfix-linter recco --json
 
       - uses: actions/github-script@v6
         if: github.event_name == 'pull_request'
@@ -70,10 +95,6 @@ jobs:
       - name: Terraform Plan Status
         if: steps.plan.outcome == 'failure'
         run: exit 1
-
-      - name: Terraform Show
-        if: github.event_name == 'pull_request'
-        run: terraform show -json
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
