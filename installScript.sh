@@ -35,4 +35,6 @@ echo "Installing cloudfix-linter"
 chmod 777 cloudfix-linter
 chmod 777 tflint
 
+export CLOUDFIX_FILE=true 
+
 cd ..
