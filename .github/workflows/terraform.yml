@@ -48,8 +48,7 @@ jobs:
 
       - name: Installing tflint
         if: github.event_name == 'pull_request'
-        run: export TFLINT_VERSION=v0.39.3
-        run: (wget https://github.com/terraform-linters/tflint/releases/download/${TFLINT_VERSION}/tflint_${PLATFORM}.zip && unzip tflint_${PLATFORM}.zip && rm tflint_${PLATFORM}.zip)
+        run: export TFLINT_VERSION=v0.39.3 && (wget https://github.com/terraform-linters/tflint/releases/download/${TFLINT_VERSION}/tflint_${PLATFORM}.zip && unzip tflint_${PLATFORM}.zip && rm tflint_${PLATFORM}.zip)
 
       - name: Installing Cloudfix-Linter
         if: github.event_name == 'pull_request'
