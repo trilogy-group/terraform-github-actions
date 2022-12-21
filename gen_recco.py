@@ -934,6 +934,8 @@ try:
         data = json.loads(tf)
     else:
         tf = open(sys.argv[1])
+        print(platform.system())
+        print(tf)
         data = json.load(tf)
     arn = data['values']['root_module']['resources'][0]['values']['arn']
     
