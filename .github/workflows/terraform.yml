@@ -38,9 +38,9 @@ jobs:
       #   run: terraform plan -no-color -input=false
       #   continue-on-error: true
       
-      - name: Terraform Show
-        if: github.event_name == 'pull_request'
-        run: terraform show ;terraform show -json > tf.show
+      # - name: Terraform Show
+      #   if: github.event_name == 'pull_request'
+      #   run: terraform show ;terraform show -json > tf.show
       
       # - name: Generate Mock reccomendations
       #   if: github.event_name == 'pull_request'
