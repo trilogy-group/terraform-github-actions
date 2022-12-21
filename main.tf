@@ -27,7 +27,8 @@ provider "aws" {
 resource "aws_s3_bucket" "prasheel-test-bucket" {
   bucket_prefix = "my-tf-bucket-cloudfixlinter"
   tags = {
-    Owner = "prasheel.tiwari@trilogy.com"
+    Owner     = "prasheel.tiwari@trilogy.com"
+    yor_trace = "1bf819f5-d130-4f67-810e-d6e24e32e125"
   }
 }
 
@@ -36,6 +37,7 @@ resource "aws_ebs_volume" "data-vol" {
   size              = 1
   type              = "gp2"
   tags = {
-    Owner = "prasheel.tiwari@trilogy.com"
+    Owner     = "prasheel.tiwari@trilogy.com"
+    yor_trace = "2e9ace76-9d14-4a56-8cf4-0a90393b5de6"
   }
 }
