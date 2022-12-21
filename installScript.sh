@@ -32,4 +32,7 @@ echo "Installing cloudfix-linter"
 (wget https://github.com/trilogy-group/cloudfix-linter-developer/releases/latest/download/cloudfix-linter-developer_${PLATFORM} \
   && mv cloudfix-linter-developer_${PLATFORM} cloudfix-linter)
 
+chmod 777 cloudfix-linter
+chmod 777 tflint
+
 cd ..
