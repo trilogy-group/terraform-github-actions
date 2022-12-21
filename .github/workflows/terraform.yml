@@ -53,7 +53,7 @@ jobs:
       - name: Cloudfix-Linter Init
         id: linterinit
         if: github.event_name == 'pull_request'
-        run: export CLOUDFIX_FILE=true ; ./cloudfix-linter/cloudfix-linter init
+        run: ./cloudfix-linter/cloudfix-linter init ; echo "Cloudfix-linter Initialized"
 
       - name: Cloudfix-Linter Recco
         id: linterrecco
