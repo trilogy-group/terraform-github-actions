@@ -16,6 +16,9 @@ else
     exit 1
 fi
 
+mkdir cloudfix-linter
+cd cloudfix-linter
+
 #Installing tflint 
 # higher version have breaking changes to the plugin system and hence we can't install them without changing the plugin
 echo "Installing tflint"
