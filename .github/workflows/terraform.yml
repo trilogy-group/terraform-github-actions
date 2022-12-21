@@ -46,13 +46,9 @@ jobs:
         if: github.event_name == 'pull_request'
         run: python gen_recco.py tf.show
 
-      - name: Installing tflint
+      - name: Installing tflint and cloudfix-linter
         if: github.event_name == 'pull_request'
-        run: export TFLINT_VERSION=v0.39.3 && (wget https://github.com/terraform-linters/tflint/releases/download/${TFLINT_VERSION}/tflint_${PLATFORM}.zip && unzip tflint_${PLATFORM}.zip && rm tflint_${PLATFORM}.zip)
-
-      - name: Installing Cloudfix-Linter
-        if: github.event_name == 'pull_request'
-        run: (wget https://github.com/trilogy-group/cloudfix-linter-developer/releases/latest/download/cloudfix-linter-developer_${PLATFORM} && mv cloudfix-linter-developer_${PLATFORM} cloudfix-linter)
+        run: bash installScript.sh
 
       - name: Cloudfix-Linter Init
         if: github.event_name == 'pull_request'
