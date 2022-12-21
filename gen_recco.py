@@ -933,7 +933,7 @@ try:
         tf = open(sys.argv[1],encoding="utf-16").read()
         data = json.loads(tf)
     else:
-        tf = open(sys.argv[1]).read()
+        tf = open(sys.argv[1],encoding="utf-16").read()
         print(platform.system())
         print(tf)
         data = json.loads(tf)
