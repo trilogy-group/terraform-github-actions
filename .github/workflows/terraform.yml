@@ -58,7 +58,7 @@ jobs:
       - name: Cloudfix-Linter Recco
         id: linterrecco
         if: github.event_name == 'pull_request'
-        run: export CLOUDFIX_FILE=true ; ./cloudfix-linter/cloudfix-linter recco --json
+        run: export CLOUDFIX_FILE=true ;export CLOUDFIX_TERRAFORM_LOCAL=true ; ./cloudfix-linter/cloudfix-linter recco --json
 
       - uses: actions/github-script@v6
         if: github.event_name == 'pull_request'
