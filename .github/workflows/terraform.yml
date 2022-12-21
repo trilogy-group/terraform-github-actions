@@ -52,11 +52,11 @@ jobs:
 
       - name: Cloudfix-Linter Init
         if: github.event_name == 'pull_request'
-        run: cloudfix-linter init
+        run: ./cloudfix-linter/cloudfix-linter init
 
       - name: Cloudfix-Linter Recco
         if: github.event_name == 'pull_request'
-        run: cloudfix-linter recco --json
+        run: ./cloudfix-linter/cloudfix-linter recco --json
 
       - uses: actions/github-script@v6
         if: github.event_name == 'pull_request'
