@@ -36,5 +36,5 @@ chmod 777 cloudfix-linter
 chmod 777 tflint
 
 export CLOUDFIX_FILE=true 
-
+export CLOUDFIX_TERRAFORM_LOCAL=true
 cd ..
