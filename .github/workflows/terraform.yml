@@ -62,6 +62,7 @@ jobs:
       - name: PR Line Comment
         id: linecomment
         if: github.event_name == 'pull_request'
+        github-token: ${{ secrets.GITHUB_TOKEN }}
         run: |
             gh api repos/trilogy-group/terraform-github-actions/pulls/${{ github.event.pull_request.number }}/comments \
             -f body="This Line" \
