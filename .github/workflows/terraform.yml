@@ -38,13 +38,13 @@ jobs:
       #   run: terraform plan -no-color -input=false
       #   continue-on-error: true
       
-      # - name: Terraform Show
-      #   if: github.event_name == 'pull_request'
-      #   run: terraform show ;terraform show -json > tf.show
+      - name: Terraform Show
+        if: github.event_name == 'pull_request'
+        run: terraform show ;terraform show -json | tail -1 > tf.show
       
-      # - name: Generate Mock reccomendations
-      #   if: github.event_name == 'pull_request'
-      #   run: python gen_recco.py tf.show
+      - name: Generate Mock reccomendations
+        if: github.event_name == 'pull_request'
+        run: python gen_recco.py tf.show
 
       - name: Installing tflint and cloudfix-linter
         if: github.event_name == 'pull_request'
