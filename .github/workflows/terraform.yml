@@ -1,9 +1,6 @@
 name: "Terraform"
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
 
 jobs:
@@ -44,8 +41,8 @@ jobs:
       
       - name: Terraform Show2
         if: github.event_name == 'pull_request'
-        run: cat terra.show | tail -2 > terra2.show; cat terra2.show
-      
+        run: cat terra.show 
+
       - name: Terraform Show3
         if: github.event_name == 'pull_request'
         run: cat terra.show | tail -1 > tf.show; cat tf.show
