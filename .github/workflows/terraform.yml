@@ -58,6 +58,10 @@ jobs:
       - name: Terraform Show6
         if: github.event_name == 'pull_request'
         run: cat terra.show | head -3 > tf.show; cat tf.show
+      
+      - name: Terraform Show7
+        if: github.event_name == 'pull_request'
+        run: cat terra.show | head -2 | tail -1 > tf.show; cat tf.show
 
       - name: Generate Mock reccomendations
         if: github.event_name == 'pull_request'
