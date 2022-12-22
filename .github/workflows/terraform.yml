@@ -40,8 +40,16 @@ jobs:
       
       - name: Terraform Show
         if: github.event_name == 'pull_request'
-        run: terraform show -json > terra.show; cat terra.show; cat terra.show | tail -2 > terra2.show; cat terra2.show; cat terra.show | tail -1 > tf.show; cat tf.show
+        run: terraform show -json > terra.show; cat terra.show
       
+      - name: Terraform Show2
+        if: github.event_name == 'pull_request'
+        run: cat terra.show | tail -2 > terra2.show; cat terra2.show
+      
+      - name: Terraform Show3
+        if: github.event_name == 'pull_request'
+        run: cat terra.show | tail -1 > tf.show; cat tf.show
+
       - name: Generate Mock reccomendations
         if: github.event_name == 'pull_request'
         run: python gen_recco.py tf.show
