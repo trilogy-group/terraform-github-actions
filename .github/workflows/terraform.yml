@@ -62,13 +62,15 @@ jobs:
       - name: PR Line Comment
         id: linecomment
         if: github.event_name == 'pull_request'
-        script: |
-          gh api repos/trilogy-group/terraform-github-actions/pulls/${{ github.event.pull_request.number }}/comments \
-          -f body="This Line" \
-          -f path="main.tf" \
-          -F line="1" \
-          -f side="RIGHT" \
-          -f commit_id="${{ github.event.pull_request.head.sha }}"
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            gh api repos/trilogy-group/terraform-github-actions/pulls/${{ github.event.pull_request.number }}/comments \
+            -f body="This Line" \
+            -f path="main.tf" \
+            -F line="1" \
+            -f side="RIGHT" \
+            -f commit_id="${{ github.event.pull_request.head.sha }}"
 
       - uses: actions/github-script@v6
         if: github.event_name == 'pull_request'
