@@ -59,10 +59,10 @@ jobs:
         if: github.event_name == 'pull_request'
         run: export CLOUDFIX_FILE=true ;export CLOUDFIX_TERRAFORM_LOCAL=true ; ./cloudfix-linter/cloudfix-linter recco --json
       
-      - uses: nbaztec/add-pr-review-comment@v1
-        with:
-          message: |
-            [{"path":"./main.tf","line":1,"text":"something was deleted","side":"RIGHT"},{"path":"./main.tf","line":2,"text":"something was added","side":"LEFT"}]
+      - name: PR Line Comment
+        id: linecomment
+        if: github.event_name == 'pull_request'
+        run: bash commentScript.sh
 
       - uses: actions/github-script@v6
         if: github.event_name == 'pull_request'
