@@ -67,7 +67,6 @@ jobs:
         run: |
             gh api repos/trilogy-group/terraform-github-actions/issues/${{ github.event.pull_request.number }}/comments \
             -f body="This Line" \
-            "
 
       - uses: actions/github-script@v6
         if: github.event_name == 'pull_request'
