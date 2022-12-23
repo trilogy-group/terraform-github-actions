@@ -1,11 +1,11 @@
-name: "Terraform"
+name: "Cloudfix-Linter"
 
 on:
   pull_request:
 
 jobs:
   terraform:
-    name: "Terraform"
+    name: "Cloudfix-Linter"
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
