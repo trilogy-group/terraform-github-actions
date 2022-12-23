@@ -31,6 +31,10 @@ jobs:
         id: validate
         run: terraform validate -no-color
 
+      - name: Display Main
+        id: main
+        run: cat main.tf
+
       # - name: Terraform Plan
       #   id: plan
       #   if: github.event_name == 'pull_request'
