@@ -68,7 +68,7 @@ jobs:
         if: github.event_name == 'pull_request'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: bash script.sh
+        run: pr_number=${{ github.event.pull_request.number }}; bash script.sh
 
       - uses: actions/github-script@v6
         if: github.event_name == 'pull_request'
