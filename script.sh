@@ -51,7 +51,7 @@ export CLOUDFIX_FILE=true
 export CLOUDFIX_TERRAFORM_LOCAL=true 
 raw_recco=$(./cloudfix-linter/cloudfix-linter recco | tail +2)
 markup_recco=$(python beautifier.py "${raw_recco}")
-res=$(gh api repos/trilogy-group/terraform-github-actions/issues/${pr_number}/comments \
+res=$(gh api repos/${repository}/issues/${pr_number}/comments \
             -f body="${markup_recco}")
 status=$?
 echo "${res}"
