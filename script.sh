@@ -1,5 +1,5 @@
 #!/bin/bash
-terraform_init=$(terraform init > temp);
+terraform_init=$(terraform init > temp)
 status=$?.
 if [ $status != 0 ] 
 then
@@ -8,7 +8,7 @@ then
 fi
 echo "Terraform Init\n"
 
-terraform_validate=$(terraform validate -no-color > temp)
+terraform_validate=$(terraform validate -no-color)
 status=$?
 if [ $status != 0 ] 
 then
