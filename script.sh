@@ -36,7 +36,7 @@ then
 fi
 echo "Generate Mock Reccomendations\n"
 
-install=$(bash installScript.sh > temp)
+install=$(bash installScript.sh > temp.txt)
 status=$?
 if [ $status != 0 ] 
 then
