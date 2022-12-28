@@ -1,5 +1,5 @@
 #!/bin/bash
-terraform_init=$(terraform init > temp)
+terraform_init=$(terraform init)
 status=$?.
 if [ $status != 0 ] 
 then
