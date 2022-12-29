@@ -12,13 +12,14 @@ terraform {
   required_version = ">= 1.1.0"
 
   cloud {
-    organization = "replace me"
+    organization = "prasheel-test-organization"
 
     workspaces {
       name = "gh-actions-demo"
     }
   }
 }
+
 
 provider "aws" {
   region = "us-east-1"
