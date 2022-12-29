@@ -24,4 +24,4 @@ jobs:
         if: github.event_name == 'pull_request'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: export pr_number=${{ github.event.pull_request.number }}; export repository=${{ github.repository }}; ls; cat main.tf; cd ..; ls; sh script.sh
+        run: export pr_number=${{ github.event.pull_request.number }}; export repository=${{ github.repository }}; ls; git branch; sh script.sh
